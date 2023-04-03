@@ -1,0 +1,215 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forgot Password</title>
+   
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nerko+One&family=Andika+New+Basic:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./cssfiles/index.css" />
+    
+    <script src="https://use.fontawesome.com/b658993120.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand" href="#"
+        ><i class="fa fa-cut"></i>URL Shortener</a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fa fa-bars fa-lg" style="color: white"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdownMenuLink"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <i class="fa fa-user-circle fa-lg"> </i>&nbsp; Account
+            </a>
+            <div
+              class="dropdown-menu"
+              aria-labelledby="navbarDropdownMenuLink"
+              style="background-color: #1076f6"
+            >
+            
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-lg-4 col-sm-6 col-xs-12 offset-lg-4 offset-sm-3 login"
+          id="loginForm"
+        >
+          <p class="loginheader" id="header">Login</p>
+          <p id="error">dwscxbnxbzvbbnbvb vccvbnjkhgfhgjk</p>
+          <form id="login" onsubmit="login();return false">
+         
+            <div class="form-group">
+              <label for="loginEmail">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="loginEmail"
+                aria-describedby="emailHelp"
+                placeholder="Your email"
+              required/>
+            </div>
+            <div class="form-group">
+              <label for="loginPass">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="loginPass"
+                placeholder="Enter your password" required
+              />
+            </div>
+            <div class="form-group">
+              <a href="" onclick="return false;" id="forgot"
+                >Forgot Password?</a
+              >
+            </div>
+
+            <button type="submit" class="btn loginbtn" >
+              Login
+            </button>
+            <div
+              class="form-group"
+              style="color: rgb(143, 140, 140); margin-top: 30px"
+            >
+              You dont have an account?
+              <a href="" onclick="return false;" id="reg" style="float: right"
+                >Register here</a
+              >
+            </div>
+          </form>
+          <form id="register"  onsubmit="register(); return false">
+           
+            <div class="form-group">
+              <label for="name">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                aria-describedby="emailHelp"
+                placeholder="Enter Username" required
+              />
+            </div>
+            <div class="form-group">
+              <label for="regEmail">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="regEmail"
+                aria-describedby="emailHelp"
+                placeholder="Enter email" required
+              />
+            </div>
+            <div class="form-group">
+              <label for="regPass">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="regPass"
+                placeholder="Password" required
+              />
+            </div>
+            <div class="form-group">
+              <a href="" onclick="return false;" style="font-size: 20px;margin-top: 10px;" id="regLogin">Login</a>
+               <button
+                type="submit"
+                class="btn loginbtn"
+               
+                style="float: right; width: 100px;"
+              >
+                Register
+              </button>
+              
+            </div>
+           
+          </form>
+        </div>
+
+        <div
+          class="col-lg-4 col-sm-6 col-xs-12 offset-lg-4 offset-sm-3 login"
+          id="forgotForm" style="margin-top: 10%;"
+        >
+          <p class="loginheader" id="header" style="margin-top: 0px;">Enter Registered Email</p>
+          
+          <form onsubmit="auth(); return false">
+            <div class="form-group">
+              <!-- <label for="frgtEmail">Email address</label> -->
+              <input
+                type="email"
+                class="form-control"
+                id="frgtEmail"
+                aria-describedby="emailHelp"
+                placeholder="Enter email" required
+              />
+            </div>
+
+            <button type="submit" class="btn loginbtn" >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="container-fluid" id="layer">
+           <div class="loading">
+             <div class="obj"></div>
+             <div class="obj"></div>
+             <div class="obj"></div>
+             <div class="obj"></div>
+             <div class="obj"></div>
+             <div class="obj"></div>
+             <div class="obj"></div>
+             <div class="obj"></div>
+           </div>
+      </div>
+    </div>
+    
+
+  
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./jsfiles/index.js"></script>
+  </body>
+</html>
